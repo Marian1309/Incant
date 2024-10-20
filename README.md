@@ -1,4 +1,4 @@
-# [Project Name](http://localhost:3000)
+# [Coin Management System](http://localhost:3000)
 
 > **Warning** This project is still in development and is not ready for production use.
 
@@ -35,7 +35,7 @@ npm install -g rimraf
 ### 3. Clone the repository
 
 ```bash
-git clone https://github.com/Marian1309/Next.js
+git clone https://github.com/Marian1309/Incant
 ```
 
 ### 4. Install dependencies
