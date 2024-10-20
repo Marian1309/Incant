@@ -1,12 +1,9 @@
 import type { NextPage } from 'next';
 
-import db from '@/db';
-import { coinsSchema } from '@/db/schema';
+import CoinList from '@/components/coin-list';
 
-const HomePage: NextPage = async () => {
-  const coins = await db.select().from(coinsSchema);
-
-  return <h1 className="pl-3 pt-2 text-xl text-accent">Homepage</h1>;
+const HomePage: NextPage = () => {
+  return <CoinList />;
 };
 
 export default HomePage;
