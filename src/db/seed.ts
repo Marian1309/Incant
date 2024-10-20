@@ -83,9 +83,9 @@ export const coinData = [
   }
 ];
 
-export const insertCoins = async () => {
+const insertCoins = async () => {
   try {
-    await db.insert(coinsSchema).values(coinData);
+    await db.insert(coinsSchema).values([]);
     console.log('Data successfully inserted!');
   } catch (error) {
     console.error('Error inserting data:', error);

@@ -2,8 +2,18 @@ import type { NextPage } from 'next';
 
 import CoinList from '@/components/coin-list';
 
-const HomePage: NextPage = () => {
-  return <CoinList />;
+import { getCoinsByName } from '@/actions';
+
+type Props = {
+  searchParams: {
+    search: string;
+  };
+};
+
+const HomePage: NextPage<Props> = async ({ searchParams }) => {
+  const coins = await getCoinsByName(searchParams.search);
+
+  return <CoinList coins={coins} />;
 };
 
 export default HomePage;
