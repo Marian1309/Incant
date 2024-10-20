@@ -2,7 +2,7 @@ import db from '.';
 
 import { coinsSchema } from './schema';
 
-const coinData = [
+export const coinData = [
   {
     name: 'Bitcoin',
     price: 69000,
@@ -62,10 +62,28 @@ const coinData = [
     price: 0.38,
     marketCap: 9000000000,
     coinMarketCapLink: 'https://coinmarketcap.com/currencies/polygon'
+  },
+  {
+    name: 'Dogecoin',
+    price: 0.14,
+    marketCap: 14000000000,
+    coinMarketCapLink: 'https://coinmarketcap.com/currencies/dogecoin'
+  },
+  {
+    name: 'Avalanche',
+    price: 28.7,
+    marketCap: 4300000000,
+    coinMarketCapLink: 'https://coinmarketcap.com/currencies/avalanche'
+  },
+  {
+    name: 'Shiba Inu',
+    price: 0.00002,
+    marketCap: 6000000000,
+    coinMarketCapLink: 'https://coinmarketcap.com/currencies/shiba-inu'
   }
 ];
 
-const insertCoins = async () => {
+export const insertCoins = async () => {
   try {
     await db.insert(coinsSchema).values(coinData);
     console.log('Data successfully inserted!');
@@ -73,5 +91,3 @@ const insertCoins = async () => {
     console.error('Error inserting data:', error);
   }
 };
-
-insertCoins();

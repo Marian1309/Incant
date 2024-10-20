@@ -14,9 +14,8 @@ system.
 - **Framework:** [Next.js](https://nextjs.org)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com)
 - **UI Components:** [Shadcn UI](https://ui.shadcn.com)
-- **Statemanagement:** [Redux Toolkit](https://redux-toolkit.js.org),
-  [React Query](https://tanstack.com/query/latest)
-- **Work with API:** [Axios](https://axios-http.com)
+- **ORM:** [Drizzle](https://orm.drizzle.team),
+- **Supabase:** [Supabase](https://supabase.com),
 
 ## Running Locally
 

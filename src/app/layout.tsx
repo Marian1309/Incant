@@ -2,6 +2,13 @@ import type { FC, ReactNode } from 'react';
 
 import type { Metadata } from 'next';
 import { Figtree } from 'next/font/google';
+import { redirect } from 'next/navigation';
+
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+
+import { cn } from '@/lib/utils';
+
+import Header from '@/components/header';
 
 import './globals.scss';
 
@@ -36,10 +43,20 @@ type Props = {
   children: ReactNode;
 };
 
-const RootLayout: FC<Props> = ({ children }) => {
+const RootLayout: FC<Props> = async ({ children }) => {
+  const { isAuthenticated } = getKindeServerSession();
+  const isUserAuthenticated = await isAuthenticated();
+
+  if (!isUserAuthenticated) {
+    redirect('/api/auth/login');
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={figtree.variable}>{children}</body>
+      <body className={cn(figtree.className, 'container mx-auto')}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 };

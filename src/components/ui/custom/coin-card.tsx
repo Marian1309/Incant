@@ -1,6 +1,9 @@
 import type { FC } from 'react';
 
-import { Card } from '../card';
+import Link from 'next/link';
+
+import { Button } from '../button';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../card';
 
 import type { Coin } from '@/db/schema';
 
@@ -10,11 +13,27 @@ type Props = {
 
 const CoinCard: FC<Props> = ({ coin }) => {
   return (
-    <Card key={coin.id}>
-      <h3>{coin.name}</h3>
-      <p>Price: ${coin.price}</p>
-      <p>Market Cap: ${coin.marketCap}</p>
-      <a href={coin.coinMarketCapLink}>View on CoinMarketCap</a>
+    <Card className="w-full shadow-lg">
+      <CardHeader>
+        <CardTitle className="text-2xl">{coin.name}</CardTitle>
+      </CardHeader>
+
+      <CardContent>
+        <p className="text-lg font-bold">
+          Price: ${coin.price.toLocaleString()}
+        </p>
+        <p className="text-sm">
+          Market Cap: ${coin.marketCap.toLocaleString()}
+        </p>
+      </CardContent>
+
+      <CardFooter>
+        <Link href={coin.coinMarketCapLink}>
+          <Button className="text-blue-500" variant="secondary">
+            View on CoinMarketCap
+          </Button>
+        </Link>
+      </CardFooter>
     </Card>
   );
 };
