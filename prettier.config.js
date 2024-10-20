@@ -20,17 +20,12 @@ const prettierConfig = {
 
     '^@/types',
 
-    '^@/context/store',
-    '^@/context/features/(.*)$',
-
     '^@/lib',
     '^@/hooks',
     '^@/components/ui/(.*)$',
     '^@/components/(.*)$',
 
     '^./ui/(.*)$',
-
-    '^@assets/(.*)$',
 
     '^../',
     '^./'

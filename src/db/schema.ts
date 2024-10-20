@@ -1,7 +1,11 @@
-import { pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
+import { numeric, pgTable, serial, text } from 'drizzle-orm/pg-core';
 
-export const users = pgTable('users', {
-  id: serial('id').primaryKey(),
-  fullName: text('full_name'),
-  phone: varchar('phone', { length: 256 })
+export const coinsSchema = pgTable('coins', {
+  id: serial('id').primaryKey().notNull(),
+  name: text('name').notNull(),
+  price: numeric('price').notNull(),
+  marketCap: numeric('market_cap').notNull(),
+  coinMarketCapLink: text('coin_market_cap_link').notNull()
 });
+
+export type Coin = typeof coinsSchema.$inferSelect;
