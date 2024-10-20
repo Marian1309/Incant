@@ -12,12 +12,13 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
-  title: 'Next.js 14',
-  description: 'Next.js 14 Template',
-  applicationName: 'Template',
+  title: 'Coin Management System',
+  description:
+    'A cryptocurrency monitoring system, allowing users to view, search, and manage coins, including real-time data such as price and market cap.',
   openGraph: {
-    title: '',
-    description: '',
+    title: 'Coin Management System',
+    description:
+      'Monitor and manage cryptocurrency data including price, market cap, and more using this powerful Next.js-based system.',
     type: 'website',
     url: '',
     images: [
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
         url: '',
         width: 40,
         height: 40,
-        alt: ''
+        alt: 'Coin Management System'
       }
     ]
   }
