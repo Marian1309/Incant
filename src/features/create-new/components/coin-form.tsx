@@ -1,79 +1,38 @@
 'use client';
 
-import type { FC } from 'react';
-
-import { useRouter } from 'next/navigation';
-
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import type { Dispatch, FC, SetStateAction } from 'react';
 
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-
-import type { CoinFormSchema } from '@/features/create-new/schemas';
-import { coinFormSchema } from '@/features/create-new/schemas';
+import { Loader } from '@/components/ui/custom';
+import { Form } from '@/components/ui/form';
 
 import CREATE_NEW_COIN_FORM_FIELDS from '../constants';
+import useCoin from '../hooks/use-coin';
 
-import { addNewCoin } from '@/actions';
+import CoinFormItem from './coin-form-item';
 
-const CoinForm: FC = () => {
-  const router = useRouter();
+type Props = {
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+};
 
-  const form = useForm<CoinFormSchema>({
-    resolver: zodResolver(coinFormSchema),
-    defaultValues: {
-      name: '',
-      price: '',
-      marketCap: '',
-      coinMarketCapLink: ''
-    }
-  });
-
-  const onSubmit = async (values: CoinFormSchema) => {
-    try {
-      await addNewCoin(values);
-      form.reset();
-      router.push('/');
-    } catch (error) {
-      console.error('Error adding new coin:', error);
-    }
-  };
+const CoinForm: FC<Props> = ({ setIsOpen }) => {
+  const { form, onSubmit, isLoading } = useCoin(setIsOpen);
 
   return (
     <Form {...form}>
       <form
-        className="space-y-4 text-2xl"
+        className="flex flex-col justify-center gap-4 text-xl"
         onSubmit={form.handleSubmit(onSubmit)}
       >
-        {CREATE_NEW_COIN_FORM_FIELDS.map((formField) => (
-          <FormField
-            control={form.control}
-            key={formField.id}
-            name={formField.name}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-[16px]">{formField.title}</FormLabel>
-
-                <FormControl>
-                  <Input type={formField.numbed ? 'number' : ''} {...field} />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            )}
+        {CREATE_NEW_COIN_FORM_FIELDS.map((createNewCoinFormField) => (
+          <CoinFormItem
+            createNewCoinFormField={createNewCoinFormField}
+            form={form}
+            key={createNewCoinFormField.id}
           />
         ))}
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit">{isLoading ? <Loader /> : <p>Submit</p>}</Button>
       </form>
     </Form>
   );

@@ -6,6 +6,12 @@
 @import '../styles/reset';
 
 @layer base {
+  html body[data-scroll-locked]:not([data-scroll-no-lock]) {
+    min-width: 100vw;
+    margin-right: 0 !important;
+    overflow: inherit !important;
+  }
+
   body {
     @apply font-primary text-black;
   }

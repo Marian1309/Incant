@@ -83,6 +83,7 @@ export const coinData = [
   }
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const insertCoins = async () => {
   try {
     await db.insert(coinsSchema).values([]);

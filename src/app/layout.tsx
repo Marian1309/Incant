@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description:
       'Monitor and manage cryptocurrency data including price, market cap, and more using this powerful Next.js-based system.',
     type: 'website',
-    url: '',
+    url: 'http://incant.vercel.com',
     images: [
       {
         url: '',

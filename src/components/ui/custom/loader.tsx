@@ -2,7 +2,7 @@
 
 import type { FC } from 'react';
 
-import { BounceLoader } from 'react-spinners';
+import { ClipLoader } from 'react-spinners';
 
 type Props = {
   loading?: boolean;
@@ -11,10 +11,11 @@ type Props = {
 const Loading: FC<Props> = ({ loading = true }) => {
   return (
     <div className="min-h-screen flex-center">
-      <BounceLoader
-        color="hsl(var(--text-accent))"
+      <ClipLoader
+        aria-label="Loading Spinner"
+        color="#fff"
         loading={loading}
-        size={40}
+        size={16}
       />
     </div>
   );

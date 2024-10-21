@@ -2,12 +2,18 @@
 
 import type { FC, KeyboardEvent } from 'react';
 
+import { cn } from '@/lib/utils';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 import useSearch from '../hooks/use-search';
 
-const CoinSearch: FC = () => {
+type Props = {
+  className?: string;
+};
+
+const CoinSearch: FC<Props> = ({ className }) => {
   const { searchTerm, handleChange, handleRedirect } = useSearch();
 
   const handleEnterPress = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -17,7 +23,7 @@ const CoinSearch: FC = () => {
   };
 
   return (
-    <div className="flex gap-x-2">
+    <div className={cn('flex gap-x-2', className)}>
       <Input
         onChange={handleChange}
         onKeyDown={handleEnterPress}
@@ -26,7 +32,7 @@ const CoinSearch: FC = () => {
       />
 
       <Button
-        className="text-xl transition-colors hover:bg-gray-200"
+        className="text-lg transition-colors lg:text-xl"
         onClick={handleRedirect}
         variant="outline"
       >

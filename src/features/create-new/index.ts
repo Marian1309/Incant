@@ -1,1 +1,1 @@
-export { default as CreateNewIcon } from './components/coin-dialog';
+export { default as CreateNewCoin } from './components/coin-dialog';

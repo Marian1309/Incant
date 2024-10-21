@@ -1,9 +1,13 @@
+'use client';
+
 import type { FC } from 'react';
+import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
+  DialogHeader,
   DialogTitle,
   DialogTrigger
 } from '@/components/ui/dialog';
@@ -11,11 +15,13 @@ import {
 import CoinForm from './coin-form';
 
 const CoinDialog: FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
-    <Dialog>
+    <Dialog onOpenChange={() => setIsOpen((prev) => !prev)} open={isOpen}>
       <DialogTrigger asChild>
         <Button
-          className="text-xl transition-colors hover:bg-gray-200"
+          className="text-lg transition-colors hover:bg-gray-200 lg:text-xl"
           variant="outline"
         >
           Add Coin
@@ -23,9 +29,11 @@ const CoinDialog: FC = () => {
       </DialogTrigger>
 
       <DialogContent>
-        <DialogTitle className="text-2xl">Add a new Coin</DialogTitle>
+        <DialogHeader>
+          <DialogTitle className="text-2xl">Add a new Coin</DialogTitle>
+        </DialogHeader>
 
-        <CoinForm />
+        <CoinForm setIsOpen={setIsOpen} />
       </DialogContent>
     </Dialog>
   );
