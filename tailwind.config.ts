@@ -45,6 +45,7 @@ const config = {
     container: {
       center: true,
       screens: {
+        nano: '280px',
         xss: '400px',
         xs: '520px',
         sm: '640px',

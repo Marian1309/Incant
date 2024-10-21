@@ -7,7 +7,7 @@ import { Button } from '../button';
 const SignOutButton: FC = () => {
   return (
     <Button
-      className="text-lg transition-colors hover:bg-gray-200 lg:text-xl"
+      className="text-sm transition-colors hover:bg-gray-200 sm:text-lg lg:text-xl"
       variant="outline"
     >
       <LogoutLink>Sign out</LogoutLink>

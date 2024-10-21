@@ -1,6 +1,6 @@
 'use client';
 
-import type { FC, KeyboardEvent } from 'react';
+import type { Dispatch, FC, KeyboardEvent, SetStateAction } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -11,14 +11,20 @@ import useSearch from '../hooks/use-search';
 
 type Props = {
   className?: string;
+  setIsOpen?: Dispatch<SetStateAction<boolean>>;
 };
 
-const CoinSearch: FC<Props> = ({ className }) => {
+const CoinSearch: FC<Props> = ({ className, setIsOpen }) => {
   const { searchTerm, handleChange, handleRedirect } = useSearch();
+
+  const handleToggle = () => {
+    handleRedirect();
+    setIsOpen?.(false);
+  };
 
   const handleEnterPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      handleRedirect();
+      handleToggle();
     }
   };
 
@@ -33,7 +39,7 @@ const CoinSearch: FC<Props> = ({ className }) => {
 
       <Button
         className="text-lg transition-colors lg:text-xl"
-        onClick={handleRedirect}
+        onClick={handleToggle}
         variant="outline"
       >
         Search

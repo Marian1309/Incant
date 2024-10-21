@@ -16,7 +16,10 @@ const Header: FC = () => {
   return (
     <div className="flex items-center justify-between py-8">
       <div className="flex items-center gap-x-3">
-        <Link className="cursor-pointer text-lg lg:text-2xl" href="/">
+        <Link
+          className="cursor-pointer text-wrap text-sm sm:text-lg lg:text-2xl"
+          href="/"
+        >
           Crypto Tracker
         </Link>
 

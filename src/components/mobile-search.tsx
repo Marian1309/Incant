@@ -1,6 +1,7 @@
 'use client';
 
-import { type FC, useState } from 'react';
+import type { FC } from 'react';
+import { useState } from 'react';
 
 import { Search } from 'lucide-react';
 
@@ -14,7 +15,7 @@ import {
 
 import { CoinSearch } from '@/features/search';
 
-const MobileNavigation: FC = () => {
+const MobileSearch: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
@@ -25,13 +26,13 @@ const MobileNavigation: FC = () => {
 
       <DialogContent className="p-6">
         <DialogHeader>
-          <DialogTitle>Type coin</DialogTitle>
+          <DialogTitle>Coin Tracker</DialogTitle>
         </DialogHeader>
 
-        <CoinSearch className="flex-col gap-y-4" />
+        <CoinSearch className="flex-col gap-y-4" setIsOpen={setIsOpen} />
       </DialogContent>
     </Dialog>
   );
 };
 
-export default MobileNavigation;
+export default MobileSearch;

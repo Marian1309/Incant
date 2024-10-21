@@ -13,7 +13,7 @@ type Props = {
 const HomePage: NextPage<Props> = async ({ searchParams }) => {
   const coins = await getCoinsByName(searchParams.search);
 
-  return <CoinList coins={coins} />;
+  return <CoinList coins={coins} searchTerm={searchParams.search} />;
 };
 
 export default HomePage;

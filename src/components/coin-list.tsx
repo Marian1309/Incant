@@ -6,12 +6,18 @@ import type { Coin } from '@/db/schema';
 
 type Props = {
   coins: Coin[];
+  searchTerm: string;
 };
 
-const CoinList: FC<Props> = ({ coins }) => {
+const CoinList: FC<Props> = ({ coins, searchTerm }) => {
   const renderCoins = () => {
     if (!coins.length) {
-      return <div className="pt-12 text-center text-2xl">No coins found.</div>;
+      return (
+        <div className="pt-12 text-center text-2xl">
+          Coins with substring <span className="font-bold">{searchTerm}</span>{' '}
+          are not found.
+        </div>
+      );
     }
 
     return (

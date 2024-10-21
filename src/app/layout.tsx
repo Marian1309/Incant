@@ -19,6 +19,7 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://incant.vercel.app'),
   title: 'Coin Management System',
   description:
     'A cryptocurrency monitoring system, allowing users to view, search, and manage coins, including real-time data such as price and market cap.',
