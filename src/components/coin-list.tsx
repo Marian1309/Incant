@@ -14,8 +14,8 @@ const CoinList: FC<Props> = ({ coins, searchTerm }) => {
     if (!coins.length) {
       return (
         <div className="pt-12 text-center text-2xl">
-          Coins with substring <span className="font-bold">{searchTerm}</span>{' '}
-          are not found.
+          Coins with substring{' '}
+          <span className="font-bold">{`"${searchTerm}"`}</span> are not found.
         </div>
       );
     }

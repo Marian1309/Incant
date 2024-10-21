@@ -22,6 +22,7 @@ const CoinCard: FC<Props> = ({ coin }) => {
         <p className="text-lg font-bold">
           Price: ${coin.price.toLocaleString()}
         </p>
+
         <p className="text-sm">
           Market Cap: ${coin.marketCap.toLocaleString()}
         </p>

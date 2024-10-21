@@ -1,7 +1,5 @@
 # [Coin Management System](https://incant-marian1309.vercel.app)
 
-> **Warning** This project is still in development and is not ready for production use.
-
 ## Prerequisites
 
 You will need [Node.js](https://nodejs.org) version 18.x.x or greater installed on your

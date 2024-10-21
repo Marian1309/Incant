@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     url: 'http://incant.vercel.com',
     images: [
       {
-        url: '',
-        width: 40,
-        height: 40,
+        url: 'https://github.com/Marian1309/Incant/blob/master/src/app/opengraph-image.png?raw=true',
+        width: 1920,
+        height: 969,
         alt: 'Coin Management System'
       }
     ]
