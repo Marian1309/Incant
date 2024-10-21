@@ -6,16 +6,18 @@ import { ClipLoader } from 'react-spinners';
 
 type Props = {
   loading?: boolean;
+  color?: string;
+  size?: number;
 };
 
-const Loading: FC<Props> = ({ loading = true }) => {
+const Loading: FC<Props> = ({ loading = true, color = '#fff', size = 16 }) => {
   return (
-    <div className="min-h-screen flex-center">
+    <div className="min-h-[calc(100vh-12rem)] flex-center">
       <ClipLoader
         aria-label="Loading Spinner"
-        color="#fff"
+        color={color}
         loading={loading}
-        size={16}
+        size={size}
       />
     </div>
   );
