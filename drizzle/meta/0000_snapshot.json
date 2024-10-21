@@ -1,5 +1,5 @@
 {
-  "id": "bc40e2c4-ecab-486b-a598-c1fe6527021c",
+  "id": "4b257c0e-b117-4c96-b7e5-0bd085984c19",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -18,25 +18,25 @@
           "name": "name",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "price": {
           "name": "price",
           "type": "numeric",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "market_cap": {
           "name": "market_cap",
           "type": "numeric",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "coin_market_cap_link": {
           "name": "coin_market_cap_link",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         }
       },
       "indexes": {},

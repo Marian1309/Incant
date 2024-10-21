@@ -27,6 +27,8 @@ const prettierConfig = {
 
     '^./ui/(.*)$',
 
+    '^@/features/(.*)$',
+
     '^../',
     '^./'
   ],
